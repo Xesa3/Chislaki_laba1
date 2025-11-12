@@ -1,0 +1,10 @@
+D:\AlgStruct_c++\Graphics-ZedGraph-master\x64\Debug\ZedGraph.dll
+D:\AlgStruct_c++\Graphics-ZedGraph-master\Graph\x64\Debug\Graph.vcxproj.AssemblyReference.cache
+D:\AlgStruct_c++\Graphics-ZedGraph-master\Graph\x64\Debug\Graph.MyForm.resources
+D:\AlgStruct_c++\Graphics-ZedGraph-master\Graph\x64\Debug\Graph.vcxproj.GenerateResource.cache
+D:\AlgStruct_c++\Graphics-ZedGraph-master\Graph\x64\Debug\Graph.vcxproj.Up2Date
+D:\AlgStruct_c++\Chislaki_\x64\Debug\ZedGraph.dll
+D:\AlgStruct_c++\Chislaki_\Graph\x64\Debug\Graph.vcxproj.AssemblyReference.cache
+D:\AlgStruct_c++\Chislaki_\Graph\x64\Debug\Graph.MyForm.resources
+D:\AlgStruct_c++\Chislaki_\Graph\x64\Debug\Graph.vcxproj.GenerateResource.cache
+D:\AlgStruct_c++\Chislaki_\Graph\x64\Debug\Graph.vcxproj.Up2Date
