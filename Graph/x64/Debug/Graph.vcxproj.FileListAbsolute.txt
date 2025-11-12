@@ -8,3 +8,8 @@ D:\AlgStruct_c++\Chislaki_\Graph\x64\Debug\Graph.vcxproj.AssemblyReference.cache
 D:\AlgStruct_c++\Chislaki_\Graph\x64\Debug\Graph.MyForm.resources
 D:\AlgStruct_c++\Chislaki_\Graph\x64\Debug\Graph.vcxproj.GenerateResource.cache
 D:\AlgStruct_c++\Chislaki_\Graph\x64\Debug\Graph.vcxproj.Up2Date
+C:\Users\super\source\repos\Chislaki_laba1\x64\Debug\ZedGraph.dll
+C:\Users\super\source\repos\Chislaki_laba1\Graph\x64\Debug\Graph.vcxproj.AssemblyReference.cache
+C:\Users\super\source\repos\Chislaki_laba1\Graph\x64\Debug\Graph.MyForm.resources
+C:\Users\super\source\repos\Chislaki_laba1\Graph\x64\Debug\Graph.vcxproj.GenerateResource.cache
+C:\Users\super\source\repos\Chislaki_laba1\Graph\x64\Debug\Graph.vcxproj.Up2Date

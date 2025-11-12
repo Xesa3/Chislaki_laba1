@@ -2,11 +2,26 @@
 \MyForm.cpp(1,1): warning C4857: Режим C++/CLI не поддерживает версии C++ более новые, чем C++20. Для языка устанавливается значение /std:c++20
   (компиляция исходного файла "/MyForm.cpp")
   
-D:\AlgStruct_c++\Chislaki_\MyForm.h(587,20): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\super\source\repos\Chislaki_laba1\MainTask2.h(220,12): warning C4101: x_half: неиспользованная локальная переменная
   (компиляция исходного файла "MyForm.cpp")
   
-D:\AlgStruct_c++\Chislaki_\MyForm.h(689,20): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\super\source\repos\Chislaki_laba1\MainTask2.h(220,29): warning C4101: y2_half: неиспользованная локальная переменная
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\super\source\repos\Chislaki_laba1\MainTask2.h(220,20): warning C4101: y1_half: неиспользованная локальная переменная
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\super\source\repos\Chislaki_laba1\MyForm.h(683,20): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\super\source\repos\Chislaki_laba1\MyForm.h(785,20): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\super\source\repos\Chislaki_laba1\MyForm.h(864,21): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\super\source\repos\Chislaki_laba1\MyForm.h(960,21): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
   (компиляция исходного файла "MyForm.cpp")
   
   MyForm.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка
-  Graph.vcxproj -> D:\AlgStruct_c++\Chislaki_\x64\Debug\Graph.exe
+  Graph.vcxproj -> C:\Users\super\source\repos\Chislaki_laba1\x64\Debug\Graph.exe

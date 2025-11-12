@@ -29,6 +29,9 @@
     <ClInclude Include="TestTask.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
+    <ClInclude Include="MainTask2.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MyForm.resx">

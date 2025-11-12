@@ -7,7 +7,7 @@ double RoundTo(double val, int digits) {
     return std::round(val * factor) / factor;
 }
 
-struct StepData2 {
+struct StepData0 {
     int i;
     double xi;
     double vi;       // решение за 1 шаг h
@@ -37,8 +37,8 @@ double rk4_step(const double& x, const double& u, const double& h) {
 }
 
 // универсальная функция RK4
-std::vector<StepData2> RK4_table(double x0, double u0, double xmax, double h0, double eps, int smax,double delta) {
-    std::vector<StepData2> table;
+std::vector<StepData0> RK4_table(double x0, double u0, double xmax, double h0, double eps, int smax,double delta) {
+    std::vector<StepData0> table;
     double x = x0;
     double u = u0;
     double h = h0;
@@ -48,7 +48,7 @@ std::vector<StepData2> RK4_table(double x0, double u0, double xmax, double h0, d
 
     // Начальная строка (x0)
     {
-        StepData2 row;
+        StepData0 row;
         row.i = step;
         row.xi = RoundTo(x, 8);        // x_j
         row.vi = RoundTo(u, 8);        // v_j
@@ -68,7 +68,7 @@ std::vector<StepData2> RK4_table(double x0, double u0, double xmax, double h0, d
 
     while (x < xmax && step <= smax) {
         bool step_accepted = false;
-        StepData2 row;
+        StepData0 row;
         row.i = step;
         while (!step_accepted && step <= smax) {
  

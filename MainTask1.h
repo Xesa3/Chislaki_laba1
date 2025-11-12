@@ -59,6 +59,8 @@ std::vector<StepData> RK4_table1(double x0, double u0, double xmax, double h0, d
 
     int count_C1 = 0, count_C2 = 0;
 
+    double x_new;
+
     // Начальная строка (x0)
     {
         StepData row;
@@ -81,14 +83,16 @@ std::vector<StepData> RK4_table1(double x0, double u0, double xmax, double h0, d
         bool step_accepted = false;
         StepData row;
         row.i = step;
+        int flag = 0;
+        row.c1 = 0;
+        row.c2 = 0;
         while (!step_accepted && step <= smax) {
-
-            row.c1 = 0;
-            row.c2 = 0;
-
             // Проверяем, не выйдем ли за xmax
             if (x + h > xmax - delta) {
-                h = xmax - x;  // последний шаг точно на xmax
+                h = xmax - x; // последний шаг точно на xmax
+                count_C2++;
+                row.c2 = 1;
+                flag = 1;
             }
 
 
@@ -112,37 +116,43 @@ std::vector<StepData> RK4_table1(double x0, double u0, double xmax, double h0, d
             if (eps > 0) {
                 if (error_est > eps) {
                     h /= 2.0;
-                    row.c1 = 1;
-                    ++count_C1;
-                }
-
-                step_accepted = true;
-
-                if (error_est < eps / 32.0) {
-                    h *= 2.0;
                     row.c2 = 1;
                     ++count_C2;
+                }
+                else if (error_est <= eps) {
+                    step_accepted = true;
+                    x_new = x + h;
+
+                    if ((error_est < eps / 32.0) && (flag == 0)) {
+                        h *= 2.0;
+                        row.c1 = 1;
+                        ++count_C1;
+                    }
                 }
             }
             else {
                 step_accepted = true;
+                x_new = x + h;
             }
+            ++step;
         }
 
         if (!step_accepted) break;
 
         // ВАЖНО: x_i = x + h (конечная точка шага)
-        double x_new = x + h;
-        row.xi = RoundTo(x_new, 8);  // x_j (конечная точка)
+        
+        row.hi = RoundTo(h, 8);
+       
+        row.xi = RoundTo(x_new, 8);  // x_i (конечная точка)
 
   
 
         // Обновляем состояние
-        u = row.v2i;  // берем более точное решение
+        u = row.vi;  // берем более точное решение
         x = x_new;
-        row.hi = RoundTo(h, 8);
+        
         table.push_back(row);
-        ++step;
+        
 
         // если достигли xmax с точностью delta — выходим
         if (std::fabs(xmax - x) < delta) break;
