@@ -1,0 +1,5 @@
+C:\Users\super\Source\Repos\Xesa3\Chislaki_laba1\Debug\ZedGraph.dll
+C:\Users\super\Source\Repos\Xesa3\Chislaki_laba1\Graph\Debug\Graph.vcxproj.AssemblyReference.cache
+C:\Users\super\Source\Repos\Xesa3\Chislaki_laba1\Graph\Debug\Graph.MyForm.resources
+C:\Users\super\Source\Repos\Xesa3\Chislaki_laba1\Graph\Debug\Graph.vcxproj.GenerateResource.cache
+C:\Users\super\Source\Repos\Xesa3\Chislaki_laba1\Graph\Debug\Graph.vcxproj.Up2Date

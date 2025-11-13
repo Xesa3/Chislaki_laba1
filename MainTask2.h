@@ -238,9 +238,9 @@ std::vector<StepData2> RK4_2t_adaptive(double x0, double y10, double y20, double
         row.i = step;
         row.xi = RoundTo(x, 8);
         row.v1i = RoundTo(y1, 8);
-        row.v1_2i = 0;
+        row.v1_2i = RoundTo(y1, 8);
         row.v2i = RoundTo(y2, 8);
-        row.v2_2i = 0;
+        row.v2_2i = RoundTo(y2, 8);
         row.v1i_v1_2i = 0.0;
         row.v2i_v2_2i = 0.0;
         row.error = 0.0;
