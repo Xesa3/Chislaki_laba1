@@ -816,7 +816,7 @@ namespace Graph {
 				dataGridView1->Rows[row]->Cells[2]->Value = step.vi.ToString("F8");
 				dataGridView1->Rows[row]->Cells[3]->Value = step.v2i.ToString("F8");
 				dataGridView1->Rows[row]->Cells[4]->Value = step.vi_v2i.ToString("F8");
-				dataGridView1->Rows[row]->Cells[5]->Value = step.error.ToString("D8");
+				dataGridView1->Rows[row]->Cells[5]->Value = step.error.ToString("F8");
 				dataGridView1->Rows[row]->Cells[6]->Value = step.hi.ToString("F8");
 				dataGridView1->Rows[row]->Cells[7]->Value = step.c1;
 				dataGridView1->Rows[row]->Cells[8]->Value = step.c2;
