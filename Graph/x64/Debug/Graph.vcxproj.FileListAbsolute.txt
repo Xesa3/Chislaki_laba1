@@ -13,3 +13,8 @@ C:\Users\super\source\repos\Chislaki_laba1\Graph\x64\Debug\Graph.vcxproj.Assembl
 C:\Users\super\source\repos\Chislaki_laba1\Graph\x64\Debug\Graph.MyForm.resources
 C:\Users\super\source\repos\Chislaki_laba1\Graph\x64\Debug\Graph.vcxproj.GenerateResource.cache
 C:\Users\super\source\repos\Chislaki_laba1\Graph\x64\Debug\Graph.vcxproj.Up2Date
+D:\Chislaki_laba1-main\x64\Debug\ZedGraph.dll
+D:\Chislaki_laba1-main\Graph\x64\Debug\Graph.vcxproj.AssemblyReference.cache
+D:\Chislaki_laba1-main\Graph\x64\Debug\Graph.MyForm.resources
+D:\Chislaki_laba1-main\Graph\x64\Debug\Graph.vcxproj.GenerateResource.cache
+D:\Chislaki_laba1-main\Graph\x64\Debug\Graph.vcxproj.Up2Date

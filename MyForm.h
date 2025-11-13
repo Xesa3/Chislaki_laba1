@@ -677,8 +677,8 @@ namespace Graph {
 				}
 				if (row.hi < h_min) { h_min = row.hi; x_at_minh = row.xi; };
 				if (row.hi > h_max) { h_max = row.hi;  x_at_maxh = row.xi; };
-				if (row.C1 > 0) count_C1 += row.C1;
-				if (row.C2 > 0) count_C2 += row.C2;
+				if (row.c1 > 0) count_C1 += row.c1;
+				if (row.c2 > 0) count_C2 += row.c2;
 			}
 			int steps_count = table.size();
 			double distance_to_boundary = xmax - table.back().xi;
@@ -721,8 +721,8 @@ namespace Graph {
 				dataGridView1->Rows[row]->Cells[4]->Value = step.vi_v2i.ToString("F8");
 				dataGridView1->Rows[row]->Cells[5]->Value = step.error.ToString("F8");
 				dataGridView1->Rows[row]->Cells[6]->Value = step.hi.ToString("F8");
-				dataGridView1->Rows[row]->Cells[7]->Value = step.C1;
-				dataGridView1->Rows[row]->Cells[8]->Value = step.C2;
+				dataGridView1->Rows[row]->Cells[7]->Value = step.c1;
+				dataGridView1->Rows[row]->Cells[8]->Value = step.c2;
 				dataGridView1->Rows[row]->Cells[9]->Value = step.ui.ToString("F8");
 				dataGridView1->Rows[row]->Cells[10]->Value = step.abs_err.ToString("F8");
 				row++;

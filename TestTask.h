@@ -15,8 +15,8 @@ struct StepData0 {
     double vi_v2i;   // |vi - v2i|
     double error;    // оценка локальной погрешности
     double hi;       // текущий шаг
-    int C1;          // шаг уменьшался
-    int C2;          // шаг увеличивался
+    int c1;          // шаг уменьшался
+    int c2;          // шаг увеличивался
     double ui;       // точное решение
     double abs_err;  // |ui - vi|
 };
@@ -36,8 +36,8 @@ double rk4_step(const double& x, const double& u, const double& h) {
     return u + (k1 + 2 * k2 + 2 * k3 + k4) / 6.0;
 }
 
-// универсальная функция RK4
-std::vector<StepData0> RK4_table(double x0, double u0, double xmax, double h0, double eps, int smax,double delta) {
+// универсальная функция RK4 в которой мы считаем численно шение либо с контролем ЛП либо без
+std::vector<StepData0> RK4_table(double x0, double u0, double xmax, double h0, double eps, int smax, double delta) {
     std::vector<StepData0> table;
     double x = x0;
     double u = u0;
@@ -45,6 +45,8 @@ std::vector<StepData0> RK4_table(double x0, double u0, double xmax, double h0, d
     int step = 0;
 
     int count_C1 = 0, count_C2 = 0;
+
+    double x_new;
 
     // Начальная строка (x0)
     {
@@ -56,10 +58,8 @@ std::vector<StepData0> RK4_table(double x0, double u0, double xmax, double h0, d
         row.vi_v2i = 0.0;
         row.error = 0.0;
         row.hi = RoundTo(h, 8);        // h
-        row.C1 = 0;
-        row.C2 = 0;
-        row.ui = RoundTo(u0 * std::exp(3.0 * x), 8);  // точное решение
-        row.abs_err = 0.0;
+        row.c1 = 0;
+        row.c2 = 0;
 
         table.push_back(row);
     }
@@ -70,14 +70,16 @@ std::vector<StepData0> RK4_table(double x0, double u0, double xmax, double h0, d
         bool step_accepted = false;
         StepData0 row;
         row.i = step;
+        int flag = 0;
+        row.c1 = 0;
+        row.c2 = 0;
         while (!step_accepted && step <= smax) {
- 
-            row.C1 = 0;
-            row.C2 = 0;
-
             // Проверяем, не выйдем ли за xmax
             if (x + h > xmax - delta) {
-                h = xmax - x;  // последний шаг точно на xmax
+                h = xmax - x; // последний шаг точно на xmax
+                count_C2++;
+                row.c2 = 1;
+                flag = 1;
             }
 
 
@@ -101,39 +103,43 @@ std::vector<StepData0> RK4_table(double x0, double u0, double xmax, double h0, d
             if (eps > 0) {
                 if (error_est > eps) {
                     h /= 2.0;
-                    row.C1 = 1;
-                    ++count_C1;              
-                }
-
-                step_accepted = true;
-
-                if (error_est < eps / 32.0) {
-                    h *= 2.0;
-                    row.C2 = 1;
+                    row.c2 = 1;
                     ++count_C2;
+                }
+                else if (error_est <= eps) {
+                    step_accepted = true;
+                    x_new = x + h;
+
+                    if ((error_est < eps / 32.0) && (flag == 0)) {
+                        h *= 2.0;
+                        row.c1 = 1;
+                        ++count_C1;
+                    }
                 }
             }
             else {
                 step_accepted = true;
+                x_new = x + h;
             }
+            ++step;
         }
 
         if (!step_accepted) break;
 
         // ВАЖНО: x_i = x + h (конечная точка шага)
-        double x_new = x + h;
-        row.xi = RoundTo(x_new, 8);  // x_j (конечная точка)
 
-        // Точное решение для КОНЕЧНОЙ точки
-        row.ui = RoundTo(u0 * std::exp(3.0 * x_new), 8);
-        row.abs_err = RoundTo(std::fabs(row.ui - row.v2i), 8);
+        row.hi = RoundTo(h, 8);
+
+        row.xi = RoundTo(x_new, 8);  // x_i (конечная точка)
+
+
 
         // Обновляем состояние
-        u = row.v2i;  // берем более точное решение
+        u = row.vi;  // берем более точное решение
         x = x_new;
-        row.hi = RoundTo(h, 8);
+
         table.push_back(row);
-        ++step;
+
 
         // если достигли xmax с точностью delta — выходим
         if (std::fabs(xmax - x) < delta) break;
