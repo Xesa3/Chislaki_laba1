@@ -1076,28 +1076,28 @@ private: System::Void comboBox1_SelectedIndexChanged(System::Object^ sender, Sys
 		textBox_x_min->Text = "0";
 		textBox_x_max->Text = "1";
 		textBox_u0->Text = "7";
-		textBox_h->Text = "0.01";
+		textBox_h->Text = std::stod("0.01").ToString("F2");
 		comboBox_additional->Visible = false;
 		comboBox_additional->Enabled = false;
 		break;
 	case 1: // Задача 2
 		label_Info_zada->Text = "Основная задача 1: \ndu/dx = 1/(2x+x^2)*u^2 + u - u^3*sin(10x)\nu(0)=u0";
 		//Задал заранее значения адекватные ибо там U(x) в космос улетает
-		textBox_x_min->Text = "0.1";
+		textBox_x_min->Text = std::stod("0.1").ToString("F1");
 		textBox_x_max->Text = "1";
-		textBox_u0->Text = "0.1";
-		textBox_h->Text = "0.001";
+		textBox_u0->Text = std::stod("0.1").ToString("F1");
+		textBox_h->Text = std::stod("0.001").ToString("F3");
 		comboBox_additional->Visible = false;
 		comboBox_additional->Enabled = false;
 		break;
 	case 2: // Задача 3
-		label_Info_zada->Text = "Основная задача 2: \nd^2U/dx^2 + a*sqrt((dU/dx)^2 + 1)";
+		label_Info_zada->Text = "Основная задача 2: \nd^2U/dx^2 + a*sqrt((dU/dx)^2 + 1) = 0";
 		comboBox_additional->Visible = true;
 		comboBox_additional->Enabled = true;
 		textBox_x_min->Text = "0";
 		textBox_x_max->Text = "1";
-		textBox_u0->Text = "0.1";
-		textBox_h->Text = "0.001";
+		textBox_u0->Text = std::stod("0.1").ToString("F1");
+		textBox_h->Text = std::stod("0.001").ToString("F3");
 		textBox_alpha->Text = "3";
 		break;
 	default:
