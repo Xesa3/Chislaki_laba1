@@ -630,10 +630,8 @@ namespace Graph {
 		}
 #pragma endregion
 	private: 
-		// отдельная функция для точного решения для тестовой задачи
-		double exact_test(double x, double u0) {
-			return u0 * std::exp(3.0 * x); // точное решение u' = 3u, u(0) = u0
-		}
+		
+		
 
 		//Тут прописано все для тестовой задачи
 		void SolveTaskTest() {

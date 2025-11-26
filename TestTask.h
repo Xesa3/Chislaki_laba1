@@ -7,6 +7,10 @@ double RoundTo(double val, int digits) {
     return std::round(val * factor) / factor;
 }
 
+double exact_test(double x, double u0) {
+    return u0 * std::exp(3.0 * x); // точное решение u' = 3u, u(0) = u0
+}
+
 struct StepData0 {
     int i;
     double xi;
@@ -60,6 +64,8 @@ std::vector<StepData0> RK4_table(double x0, double u0, double xmax, double h0, d
         row.hi = RoundTo(h, 8);        // h
         row.c1 = 0;
         row.c2 = 0;
+        row.ui = u0;
+        row.abs_err = 0;
 
         table.push_back(row);
     }
@@ -135,8 +141,10 @@ std::vector<StepData0> RK4_table(double x0, double u0, double xmax, double h0, d
 
 
         // Обновляем состояние
-        u = row.vi;  // берем более точное решение
+        u = row.vi;  
         x = x_new;
+        row.ui = exact_test(x, u0);
+        row.abs_err = std::abs(row.ui - row.vi);
 
         table.push_back(row);
 
